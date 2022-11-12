@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,12 +8,26 @@
     tools:context=".MainActivity"
     android:background="@drawable/bg">
 
+    <ImageButton
+        android:id="@+id/settingsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@null"
+        android:onClick="onSettings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/settings_button" />
+
     <ImageView
         android:id="@+id/logoproto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="82dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="59dp"
+        android:scaleType="centerCrop"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logoprototype" />
@@ -21,7 +36,7 @@
         android:id="@+id/textLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="18dp"
         android:fontFamily="@font/maitree_light"
         android:lineHeight="84sp"
         android:text="TextView"
@@ -35,17 +50,113 @@
         android:id="@+id/line"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="255dp"
+        android:layout_marginTop="188dp"
         app:layout_constraintStart_toEndOf="@+id/logoproto"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/line" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/previous"
         android:layout_width="wrap_content"
-        
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/previous"
-        tools:layout_editor_absoluteX="43dp"
-        tools:layout_editor_absoluteY="480dp" />
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="124dp"
+        android:background="@null"
+        android:onClick="onPrev"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoproto"
+        app:srcCompat="@drawable/previous" />
+
+    <ImageButton
+        android:id="@+id/playpause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="231dp"
+        android:layout_marginTop="75dp"
+        android:onClick="onPLay"
+        android:background="@null"
+        app:layout_constraintStart_toEndOf="@+id/previous"
+        app:layout_constraintTop_toBottomOf="@+id/line"
+        app:srcCompat="@drawable/playbutton" />
+
+    <ImageView
+        android:id="@+id/play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="110dp"
+        android:layout_marginEnd="96dp"
+        app:layout_constraintBottom_toBottomOf="@+id/playpause"
+        app:layout_constraintEnd_toEndOf="@+id/playpause"
+        app:layout_constraintStart_toStartOf="@+id/playpause"
+        app:layout_constraintTop_toTopOf="@+id/playpause"
+        app:srcCompat="@drawable/play" />
+
+    <ImageView
+        android:id="@+id/pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/playpause"
+        app:layout_constraintEnd_toEndOf="@+id/playpause"
+        app:layout_constraintStart_toStartOf="@+id/playpause"
+        app:layout_constraintTop_toTopOf="@+id/playpause"
+        app:srcCompat="@drawable/pause"
+        android:visibility="invisible"/>
+
+    <ImageButton
+        android:id="@+id/next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="233dp"
+        android:background="@null"
+        android:onClick="onNext"
+        app:layout_constraintStart_toEndOf="@+id/playpause"
+        app:layout_constraintTop_toTopOf="@+id/previous"
+        app:srcCompat="@drawable/next" />
+
+    <ImageButton
+        android:id="@+id/repeat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="586dp"
+        android:layout_marginTop="47dp"
+        android:background="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playpause"
+        app:srcCompat="@drawable/repeat"
+        android:onClick="onRepeat" />
+
+    <ImageButton
+        android:id="@+id/minus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginBottom="45dp"
+        android:background="@null"
+        android:onClick="onMinus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/repeat"
+        app:srcCompat="@drawable/minus" />
+
+    <ImageButton
+        android:id="@+id/plus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginBottom="45dp"
+        android:background="@null"
+        android:onClick="onPlus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/minus"
+        app:srcCompat="@drawable/plus" />
+
+    <ImageView
+        android:id="@+id/volumeImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginBottom="57dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/plus"
+        app:srcCompat="@drawable/volumeimg" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
